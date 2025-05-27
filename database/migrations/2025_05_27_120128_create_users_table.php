@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id')->unique('id');
-            $table->char('uuid', 36);
+            $table->bigIncrements('id')->unique('id')->autoincrement();
+            $table->char('uuid', 36)->unique('uuid');
             $table->integer('position_type')->nullable()->default(1);
             $table->integer('organization_id')->nullable()->default(1);
             $table->integer('employee_id');
@@ -53,7 +53,6 @@ return new class extends Migration
             $table->tinyInteger('business_unit_id')->nullable();
             $table->enum('lang_perfer', ['ar', 'en'])->nullable();
 
-            $table->primary(['id']);
         });
     }
 

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('family_names', function (Blueprint $table) {
-            $table->char('uuid', 36);
-            $table->bigIncrements('id');
+            $table->char('uuid', 36)->unique();
+            $table->integer('id')->unique();
             $table->integer('organization_id')->nullable()->default(1);
             $table->string('name_ar', 355);
             $table->string('name_en', 355);

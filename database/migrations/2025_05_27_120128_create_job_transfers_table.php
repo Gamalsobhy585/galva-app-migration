@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('job_transfers', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->integer('id')->unique();
             $table->unsignedInteger('organization_id');
             $table->integer('structure_level_id');
             $table->integer('employee_id')->nullable();

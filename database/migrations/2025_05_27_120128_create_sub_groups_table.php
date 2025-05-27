@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('sub_groups', function (Blueprint $table) {
             $table->timestamp('updated_at')->nullable();
-            $table->char('uuid', 36);
-            $table->bigIncrements('id');
+            $table->char('uuid', 36)->unique();
+            $table->integer('id')->unique();
             $table->integer('organization_id')->nullable()->default(1);
             $table->string('name_ar');
             $table->string('name_en');

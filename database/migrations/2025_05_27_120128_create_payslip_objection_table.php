@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payslip_objection', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->char('uuid', 36);
+            $table->integer('id')->unique();
+            $table->char('uuid', 36)->unique();
             $table->integer('employee_id');
             $table->integer('organization_id');
             $table->boolean('objection_status');

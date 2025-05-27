@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('multi_organizations', function (Blueprint $table) {
-            $table->char('uuid', 36);
-            $table->bigIncrements('id');
+            $table->char('uuid', 36)->unique();
+            $table->integer('id')->unique();
             $table->string('name_ar');
             $table->string('name_en');
             $table->string('mobile', 16);

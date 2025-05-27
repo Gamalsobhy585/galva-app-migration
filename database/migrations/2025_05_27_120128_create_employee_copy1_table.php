@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employee_copy1', function (Blueprint $table) {
-            $table->bigIncrements('id')->index('id_index');
-            $table->char('uuid', 36);
+            $table->integer('id')->index('id_index')->unique();
+            $table->char('uuid', 36)->unique();
             $table->integer('organization_id')->nullable()->default(1);
             $table->string('name_en')->nullable();
             $table->integer('code');
