@@ -12,9 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('work_spaces', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); 
+            $table->char('uuid', 36)->unique(); 
+            $table->string('name', 255); 
+            $table->string('image', 255); 
+            $table->tinyInteger('status');
+            $table->foreignId('created_by')->constrained('users'); 
+            $table->softDeletes(); 
+            $table->timestamps(); 
+            
+
         });
+
     }
 
     /**
