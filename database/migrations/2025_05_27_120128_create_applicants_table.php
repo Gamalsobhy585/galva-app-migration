@@ -12,15 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applicants', function (Blueprint $table) {
+            $table->integer('id'); 
+            $table->char('uuid', 36);
             $table->primary(['id', 'uuid']);
-             $table->integer('id')->autoIncrement(); 
-             $table->char('uuid', 36);
             $table->string('current_salary', 150)->nullable();
             $table->integer('marital_status')->nullable()->comment('1: single, 2:married,3:widower,4:divorce,5:engaged');
             $table->tinyInteger('military_status')->nullable()->comment('1: done, 2:exemption,3:delayed');
             $table->string('current_company', 300)->nullable();
-            $table->integer('id', true);
-            $table->char('uuid', 36);
             $table->integer('organization_id');
             $table->string('application_date', 200)->nullable();
             $table->string('name_ar')->nullable();
